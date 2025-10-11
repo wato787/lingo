@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   lingo:
     build:
@@ -12,6 +10,8 @@ services:
       - app-network
     depends_on:
       - postgres
+    env_file:
+      - ../.env
     environment:
       - DATABASE_URL=${DATABASE_URL}
 
