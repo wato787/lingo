@@ -29,5 +29,5 @@
       }
     }
   },
-  "postCreateCommand": "sed -i 's/ZSH_THEME=\"devcontainers\"/ZSH_THEME=\"robbyrussell\"/' ~/.zshrc && mise trust && mise install"
+  "postCreateCommand": ".devcontainer/scripts/setup.sh"
 }
