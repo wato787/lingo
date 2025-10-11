@@ -1,0 +1,31 @@
+{
+  "name": "lingo-devcontainer",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "lingo",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/app",
+  "overrideCommand": false,
+  "features": {
+      "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZshConfig": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "ms-vscode-remote.remote-containers"
+      ],
+      "settings": {
+        "dev.containers.dockerCredentialHelper": false
+      }
+    }
+  },
+  "postCreateCommand": "sed -i 's/ZSH_THEME=\"devcontainers\"/ZSH_THEME=\"robbyrussell\"/' ~/.zshrc"
+}
