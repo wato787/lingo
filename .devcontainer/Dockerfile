@@ -8,11 +8,32 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # miseをインストール
-RUN curl https://mise.run | sh
+ARG MISE_VERSION=2025.10.7
+RUN curl -fsSL https://mise.jdx.dev/install.sh | MISE_VERSION=v${MISE_VERSION} sh  
 
-# miseとbunをPATHに追加
-RUN echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
-RUN echo 'export PATH="$HOME/.bun/bin:$PATH"' >> ~/.zshrc
+// .devcontainer/Dockerfile
+# ── remove these two lines (they should no longer live in the Dockerfile build step)
+# RUN echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+# RUN echo 'export PATH="$HOME/.bun/bin:$PATH"' >> ~/.zshrc
+
+
+// .devcontainer/devcontainer.json
+{
+  // … other settings …
+  "postCreateCommand": "echo 'export PATH=\"$HOME/.local/bin:$HOME/.bun/bin:$PATH\"' >> ~/.zshrc && sed -i 's/ZSH_THEME=\"devcontainers\"/ZSH_THEME=\"robbyrussell\"/' ~/.zshrc",
+  // … other settings …
+}
+# ── remove these two lines (they should no longer live in the Dockerfile build step)
+# RUN echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+# RUN echo 'export PATH="$HOME/.bun/bin:$PATH"' >> ~/.zshrc
+
+
+// .devcontainer/devcontainer.json
+{
+  // … other settings …
+  "postCreateCommand": "echo 'export PATH=\"$HOME/.local/bin:$HOME/.bun/bin:$PATH\"' >> ~/.zshrc && sed -i 's/ZSH_THEME=\"devcontainers\"/ZSH_THEME=\"robbyrussell\"/' ~/.zshrc",
+  // … other settings …
+}
 
 # 作業ディレクトリを設定
 WORKDIR /app

@@ -3,7 +3,7 @@ bun = "latest"
 
 [tasks]
 install = "bun install --cwd frontend && bun install --cwd backend"
-dev = "concurrently \"mise run dev-frontend\" \"mise run dev-backend\""
+dev = "bunx concurrently \"mise run dev-frontend\" \"mise run dev-backend\""
 dev-frontend = "bun --cwd frontend run dev"
 dev-backend = "bun --cwd backend run dev"
 build = "bun --cwd frontend run build && bun --cwd backend run build"

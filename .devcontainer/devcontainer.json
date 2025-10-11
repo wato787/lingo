@@ -20,12 +20,14 @@
         "bradlc.vscode-tailwindcss",
         "esbenp.prettier-vscode",
         "ms-vscode.vscode-json",
-        "ms-vscode-remote.remote-containers"
+        "ms-vscode-remote.remote-containers",
+        "coderabbit.coderabbit-vscode",
+        "github.vscode-pull-request-github"
       ],
       "settings": {
         "dev.containers.dockerCredentialHelper": false
       }
     }
   },
-  "postCreateCommand": "sed -i 's/ZSH_THEME=\"devcontainers\"/ZSH_THEME=\"robbyrussell\"/' ~/.zshrc"
+  "postCreateCommand": "echo 'export PATH=\"$HOME/.local/bin:$HOME/.bun/bin:$PATH\"' >> ~/.zshrc && mise install && sed -i 's/ZSH_THEME=\"devcontainers\"/ZSH_THEME=\"robbyrussell\"/' ~/.zshrc"
 }
