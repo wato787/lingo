@@ -5,6 +5,7 @@
   "remoteUser": "vscode",
   "workspaceFolder": "/app",
   "overrideCommand": false,
+  "shutdownAction": "stopCompose",
   "features": {
       "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
