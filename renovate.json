@@ -5,6 +5,8 @@
   "schedule": ["before 3am on monday"],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
+  "automerge": true,
+  "automergeType": "pr",
   "packageRules": [
     {
       "matchPaths": ["frontend/**"],
@@ -25,6 +27,10 @@
     {
       "matchPackagePatterns": ["^@types/"],
       "groupName": "typescript types"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false
     }
   ]
 }
