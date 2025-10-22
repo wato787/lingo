@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
     "strict": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
-  }
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
